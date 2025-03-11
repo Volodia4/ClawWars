@@ -3,13 +3,13 @@ using UnityEngine.UI;
 
 public class Selector : MonoBehaviour
 {
-    [Header("Character Selection")]
+    [Header("Вибір персонажа")]
     public Image characterImage1, characterImage2;
     public Sprite[] characterSprites;
     [HideInInspector]
     public int charIndex1 = 0, charIndex2 = 0;
 
-    [Header("Arena Selection")]
+    [Header("Вибір арени")]
     public Image arenaImage;
     public Sprite[] arenaSprites;
     [HideInInspector]

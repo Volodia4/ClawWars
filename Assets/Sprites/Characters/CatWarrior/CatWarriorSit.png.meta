@@ -123,21 +123,42 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
+      name: CatWarriorSit_2
+      rect:
+        serializedVersion: 2
+        x: 314
+        y: 24
+        width: 118
+        height: 155
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9fb2dd53c55f5d47b37d55c2f0e4743
+      internalID: 1678083443
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: CatWarriorSit_0
       rect:
         serializedVersion: 2
         x: 20
         y: 24
         width: 131
-        height: 145
+        height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e08363093472c9146aa7b2d999c2fd47
+      spriteID: 4051d060ebc4d4440afb6682f93e4e73
       internalID: 603262322
       vertices: []
       indices: 
@@ -150,37 +171,16 @@ TextureImporter:
         x: 169
         y: 24
         width: 127
-        height: 136
+        height: 155
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 80d51d33ff238ad41bfb091c8b874133
+      spriteID: 49701f6aedee50e498a1715de8428606
       internalID: -1811396502
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: CatWarriorSit_2
-      rect:
-        serializedVersion: 2
-        x: 314
-        y: 24
-        width: 118
-        height: 110
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d9fb2dd53c55f5d47b37d55c2f0e4743
-      internalID: 1678083443
       vertices: []
       indices: 
       edges: []
