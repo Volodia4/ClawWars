@@ -1028,8 +1028,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e4558f36e190a4e40820a41c4f530a2c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedCharacter1: {fileID: 0}
-  selectedCharacter2: {fileID: 0}
+  selectedCharacter1: 0
+  selectedCharacter2: 0
   selectedArena: {fileID: 0}
 --- !u!1 &919708414
 GameObject:
@@ -2504,9 +2504,12 @@ MonoBehaviour:
   characterSprites:
   - {fileID: 21300000, guid: abc92112f54d7554f8b58aa396e27742, type: 3}
   - {fileID: 21300000, guid: 85b09c5080f5574429042e62dc2d1ee8, type: 3}
+  charIndex1: 0
+  charIndex2: 0
   arenaImage: {fileID: 1740587843}
   arenaSprites:
   - {fileID: 21300000, guid: 21a633dfb42ea8940affc5d5967588c9, type: 3}
+  arenaIndex: 0
 --- !u!114 &2060134901
 MonoBehaviour:
   m_ObjectHideFlags: 0

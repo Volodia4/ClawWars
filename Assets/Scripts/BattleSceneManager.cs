@@ -6,32 +6,20 @@ public class BattleSceneManager : MonoBehaviour
     public GameObject player1, player2, background;
 
     [Header("Аніматори персонажів")]
-    public RuntimeAnimatorController[] playerAnimators;
+    public RuntimeAnimatorController[] animatorControllers;
+
+    [Header("Параметри та особливості персонажів")]
+    public CharacterAbilities[] characterAbilities;
 
     void Start()
     {
         if (GameManager.Instance != null)
         {
-            int char1Index = GameManager.Instance.selectedCharacter1;
-            int char2Index = GameManager.Instance.selectedCharacter2;
+            int charIndex1 = GameManager.Instance.selectedCharacter1;
+            int charIndex2 = GameManager.Instance.selectedCharacter2;
 
-            if (player1 != null)
-            {
-                Animator anim1 = player1.GetComponent<Animator>();
-                if (anim1 != null && playerAnimators != null && playerAnimators.Length > char1Index)
-                {
-                    anim1.runtimeAnimatorController = playerAnimators[char1Index];
-                }
-            }
-
-            if (player2 != null)
-            {
-                Animator anim2 = player2.GetComponent<Animator>();
-                if (anim2 != null && playerAnimators != null && playerAnimators.Length > char2Index)
-                {
-                    anim2.runtimeAnimatorController = playerAnimators[char2Index];
-                }
-            }
+            if (player1 != null) SetupCharacter(player1, charIndex1);
+            if (player2 != null) SetupCharacter(player2, charIndex2);
 
             if (background != null)
             {
@@ -40,6 +28,24 @@ public class BattleSceneManager : MonoBehaviour
                 {
                     bgSR.sprite = GameManager.Instance.selectedArena;
                 }
+            }
+        }
+    }
+
+    private void SetupCharacter(GameObject player, int charIndex)
+    {
+        if (player != null)
+        {
+            Animator anim = player.GetComponent<Animator>();
+            if (anim != null && charIndex >= 0 && charIndex < animatorControllers.Length)
+            {
+                anim.runtimeAnimatorController = animatorControllers[charIndex];
+            }
+
+            Player playerScript = player.GetComponent<Player>();
+            if (playerScript != null && charIndex >= 0 && charIndex < characterAbilities.Length)
+            {
+                playerScript.abilities = characterAbilities[charIndex];
             }
         }
     }

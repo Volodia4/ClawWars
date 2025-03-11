@@ -134,8 +134,8 @@ GameObject:
   - component: {fileID: 2227505}
   - component: {fileID: 2227508}
   - component: {fileID: 2227507}
-  - component: {fileID: 2227509}
   - component: {fileID: 2227510}
+  - component: {fileID: 2227511}
   m_Layer: 0
   m_Name: Player1
   m_TagString: Player
@@ -204,8 +204,8 @@ Transform:
   m_GameObject: {fileID: 2227504}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -12, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: -14, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -225,7 +225,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -282,7 +282,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!95 &2227509
+--- !u!114 &2227510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2227504}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2053d94db405644aaffeaa0cd29ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities: {fileID: 11400000, guid: 2448bd64354b425418bc981f6c433287, type: 2}
+  rb: {fileID: 2227507}
+  otherPlayer: {fileID: 1805373160}
+  isPlayer1: 1
+  leftKey: 97
+  rightKey: 100
+  upKey: 119
+  downKey: 115
+  longAtkKey: 103
+  shortAtkKey: 102
+  shieldKey: 104
+--- !u!95 &2227511
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -303,20 +326,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &2227510
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2227504}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ba2053d94db405644aaffeaa0cd29ce0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 7
 --- !u!1 &216408961
 GameObject:
   m_ObjectHideFlags: 0
@@ -635,8 +644,8 @@ GameObject:
   - component: {fileID: 1805373159}
   - component: {fileID: 1805373162}
   - component: {fileID: 1805373161}
-  - component: {fileID: 1805373163}
   - component: {fileID: 1805373164}
+  - component: {fileID: 1805373165}
   m_Layer: 0
   m_Name: Player2
   m_TagString: Player
@@ -705,8 +714,8 @@ Transform:
   m_GameObject: {fileID: 1805373158}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 12, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalPosition: {x: 14, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -726,7 +735,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 6
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
@@ -783,7 +792,30 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.5, y: 1.5}
   m_EdgeRadius: 0
---- !u!95 &1805373163
+--- !u!114 &1805373164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1805373158}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ba2053d94db405644aaffeaa0cd29ce0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  abilities: {fileID: 11400000, guid: 254c82895e45f344e99ff564a89c67bc, type: 2}
+  rb: {fileID: 1805373161}
+  otherPlayer: {fileID: 2227506}
+  isPlayer1: 0
+  leftKey: 260
+  rightKey: 262
+  upKey: 264
+  downKey: 258
+  longAtkKey: 265
+  shortAtkKey: 261
+  shieldKey: 263
+--- !u!95 &1805373165
 Animator:
   serializedVersion: 5
   m_ObjectHideFlags: 0
@@ -804,20 +836,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
---- !u!114 &1805373164
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1805373158}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 51e6e7eaba6e5784ba7406169e7ba862, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 5
-  jumpForce: 7
 --- !u!1 &2059878407
 GameObject:
   m_ObjectHideFlags: 0
@@ -850,9 +868,12 @@ MonoBehaviour:
   player1: {fileID: 2227504}
   player2: {fileID: 1805373158}
   background: {fileID: 216408961}
-  playerAnimators:
+  animatorControllers:
   - {fileID: 9100000, guid: 5af281bcbe6a8164f9c42f993260c932, type: 2}
   - {fileID: 9100000, guid: 00e7335a0bd94664ea1a78391b69ef54, type: 2}
+  characterAbilities:
+  - {fileID: 11400000, guid: 2448bd64354b425418bc981f6c433287, type: 2}
+  - {fileID: 11400000, guid: 254c82895e45f344e99ff564a89c67bc, type: 2}
 --- !u!4 &2059878409
 Transform:
   m_ObjectHideFlags: 0
