@@ -4,14 +4,17 @@ using UnityEngine.UI;
 public class Selector : MonoBehaviour
 {
     [Header("Вибір персонажа")]
-    public Image characterImage1, characterImage2;
+    public Image characterImage1;
+    public Image characterImage2;
     public Sprite[] characterSprites;
+
     [HideInInspector]
     public int charIndex1 = 0, charIndex2 = 0;
 
     [Header("Вибір арени")]
     public Image arenaImage;
     public Sprite[] arenaSprites;
+
     [HideInInspector]
     public int arenaIndex = 0;
 

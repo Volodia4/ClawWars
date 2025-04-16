@@ -11,6 +11,14 @@ TagManager:
   - Text
   - Objects
   - Ground
+  - BodyP1
+  - BodyP2
+  - HitboxP1
+  - HitboxP2
+  - ShortAttackP1
+  - ShortAttackP2
+  - LongAttackP1
+  - LongAttackP2
   layers:
   - Default
   - TransparentFX
@@ -18,8 +26,8 @@ TagManager:
   - 
   - Water
   - UI
-  - 
-  - 
+  - Player1
+  - Player2
   - 
   - 
   - 
@@ -59,4 +67,7 @@ TagManager:
     locked: 0
   - name: Objects
     uniqueID: 3460602893
+    locked: 0
+  - name: Canvas
+    uniqueID: 999966023
     locked: 0
