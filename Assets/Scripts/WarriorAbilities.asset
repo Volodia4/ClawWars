@@ -15,7 +15,8 @@ MonoBehaviour:
   speed: 4
   jumpForce: 8
   maxJumpHoldTime: 0.3
-  maxHP: 120
+  maxHP: 595
   damage: 20
-  defense: 35
+  defense: 0.35
+  critChanse: 0.3
   canShield: 1
