@@ -329,6 +329,7 @@ GameObject:
   - component: {fileID: 6152985666055496342}
   - component: {fileID: 38094272779277089}
   - component: {fileID: 676830034995517123}
+  - component: {fileID: 2184759846972875033}
   m_Layer: 0
   m_Name: WarriorPrefab
   m_TagString: Untagged
@@ -345,8 +346,8 @@ Transform:
   m_GameObject: {fileID: 5642899640556940264}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -9.49039, y: 0.0666475, z: 0.03884644}
-  m_LocalScale: {x: 3, y: 3, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 3, y: 3, z: 0}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5852533720925860071}
@@ -397,6 +398,7 @@ MonoBehaviour:
   playerAttackShort: {fileID: 3493205291460757665}
   playerAttackLong: {fileID: 2954900129900782654}
   abilities: {fileID: 11400000, guid: 2448bd64354b425418bc981f6c433287, type: 2}
+  fireball: {fileID: 0}
   rb: {fileID: 1015158596030824209}
   shortAttackCooldown: 1.2
   longAttackCooldown: 2.5
@@ -404,6 +406,10 @@ MonoBehaviour:
   shortAtkHoldTime: 0.6
   longAtkHoldTime: 0.9
   shieldHoldTime: 1.5
+  shortAtkSound: SwordShort
+  longAtkSound: SwordLong
+  shortAtkSoundDelay: 0.3
+  longAtkSoundDelay: 0.5
   otherPlayer: {fileID: 0}
   leftKey: 0
   rightKey: 0
@@ -451,8 +457,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -1418495003
+  m_SortingLayer: 3
   m_SortingOrder: 0
   m_Sprite: {fileID: 259993506, guid: 983ee43156e416c409ccb693023a848c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -486,6 +492,102 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!82 &2184759846972875033
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5642899640556940264}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 0
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &6144847678580256031
 GameObject:
   m_ObjectHideFlags: 0

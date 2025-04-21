@@ -12,11 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ca23cc8b82dfbb343a16b3c15f09ae0f, type: 3}
   m_Name: WarriorAbilities
   m_EditorClassIdentifier: 
-  speed: 4
+  speed: 5.5
   jumpForce: 8
   maxJumpHoldTime: 0.3
-  maxHP: 595
+  maxHP: 395
   damage: 20
-  defense: 0.35
+  defense: 0.28
   critChanse: 0.3
   canShield: 1
+  hasFireball: 0

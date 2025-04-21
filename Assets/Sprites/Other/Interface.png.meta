@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0899a28261263924db4abf387f6cd550
+guid: 7e747c0e2dd435c4db6c3fd227a15fd3
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -70,7 +70,7 @@ TextureImporter:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 16384
-    resizeAlgorithm: 0
+    resizeAlgorithm: 1
     textureFormat: -1
     textureCompression: 2
     compressionQuality: 50
@@ -137,8 +137,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 134f8b4abf780cb46be3381ec826f228
-      internalID: 1800798484
+      spriteID: 6bcc58e25422d6e46a587e5f018a78bd
+      internalID: -1991431723
       vertices: []
       indices: 
       edges: []
@@ -158,14 +158,98 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cccd4a9822137ac4ea59e946a4e5fc8f
-      internalID: -694865566
+      spriteID: c5a0ee3f954661d4b874fadfac40cc56
+      internalID: -152309256
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
       name: Interface_2
+      rect:
+        serializedVersion: 2
+        x: 255
+        y: 224
+        width: 91
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1449cd75e7aaefa40be5fd4bd1a411a4
+      internalID: 1116500838
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface_5
+      rect:
+        serializedVersion: 2
+        x: 364
+        y: 187
+        width: 46
+        height: 60
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4b2e1b3e7136df943a42fd70957a4c08
+      internalID: 992057213
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface_6
+      rect:
+        serializedVersion: 2
+        x: 435
+        y: 195
+        width: 46
+        height: 46
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8d1ddced1f22ee14ebf5422de0acd06c
+      internalID: -1162631359
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface_7
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 171
+        width: 32
+        height: 40
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e5e4f4912ae35e8408dc33f958fecc0b
+      internalID: -1506828031
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface_8
       rect:
         serializedVersion: 2
         x: 64
@@ -179,18 +263,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d272242b5b731e34d8b9840aa95d3c59
-      internalID: 907341527
+      spriteID: 8a2aa56f84b76914aa8145628140f9b7
+      internalID: -438228358
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interface_3
+      name: Interface_9
       rect:
         serializedVersion: 2
-        x: 16
-        y: 129
+        x: 256
+        y: 192
+        width: 91
+        height: 17
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37b4af2f7eb33464ebd4f51e88dae487
+      internalID: 1017403006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface_12
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 119
         width: 156
         height: 44
       alignment: 0
@@ -200,14 +305,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: ec19a94568f903744baf9620cfd8a8f9
-      internalID: -1620659128
+      spriteID: dcb00fc772b46644b867e6a63106731c
+      internalID: 686318666
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interface_4
+      name: Interface_13
       rect:
         serializedVersion: 2
         x: 194
@@ -221,18 +326,39 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cbf945468fd1e2343a54f33fb063565c
-      internalID: -612278512
+      spriteID: 537ac71d5e013f54893bc2c98feb8395
+      internalID: 108242516
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interface_5
+      name: Interface_14
       rect:
         serializedVersion: 2
-        x: 16
-        y: 76
+        x: 267
+        y: 132
+        width: 226
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 357dd25309ccce248b31c365871bd92b
+      internalID: 1060385567
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface_15
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 62
         width: 156
         height: 44
       alignment: 0
@@ -242,14 +368,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7c3964afb9441f04582b25ae8ff74d7e
-      internalID: -852372295
+      spriteID: 101533984a6957644bc796d410573eaf
+      internalID: 624994092
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interface_6
+      name: Interface_16
       rect:
         serializedVersion: 2
         x: 194
@@ -263,20 +389,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 765010ede0a6f5143a4bae710cb1b1f6
-      internalID: 42232362
+      spriteID: dd227637a61067f45b9af5e0376f78cb
+      internalID: 724436201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interface_7
+      name: Interface_17
       rect:
         serializedVersion: 2
-        x: 13
-        y: 47
-        width: 93
-        height: 17
+        x: 268
+        y: 74
+        width: 100
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -284,20 +410,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2773f50acf3736946bb8c30cfbf21eea
-      internalID: 301454295
+      spriteID: 41fba9bd5347a6c47ab7e0e952f0a7a9
+      internalID: -740431177
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interface_10
+      name: Interface_18
       rect:
         serializedVersion: 2
-        x: 136
-        y: 18
-        width: 32
-        height: 40
+        x: 376
+        y: 73
+        width: 100
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -305,14 +431,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: cd46301252fecc94997f80a05f1e497b
-      internalID: -1383988599
+      spriteID: 502d4143710e40745a0512c7c64387d5
+      internalID: -212589869
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interface_11
+      name: Interface_19
+      rect:
+        serializedVersion: 2
+        x: 20
+        y: 7
+        width: 156
+        height: 44
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5876ebf35d3eac14388fa45a01fe497f
+      internalID: -1507601717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Interface_20
       rect:
         serializedVersion: 2
         x: 194
@@ -326,20 +473,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e206eee290368724786a09371483ed6f
-      internalID: 2099891589
+      spriteID: d4817bc5865d8c54e98ee4e5ef017394
+      internalID: -20599671
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Interface_12
+      name: Interface_21
       rect:
         serializedVersion: 2
-        x: 13
-        y: 15
-        width: 93
-        height: 17
+        x: 256
+        y: 16
+        width: 240
+        height: 44
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -347,8 +494,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 5abaf02640aa67d4681556aa884f7f7e
-      internalID: 411198579
+      spriteID: 5a06230308f0bc24aa87692f459f3e40
+      internalID: 1905001423
       vertices: []
       indices: 
       edges: []
@@ -364,21 +511,28 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Interface_0: 1800798484
-      Interface_1: -694865566
-      Interface_10: -1383988599
-      Interface_11: 2099891589
-      Interface_12: 411198579
-      Interface_13: -723537895
-      Interface_14: 2011968473
-      Interface_2: 907341527
-      Interface_3: -1620659128
-      Interface_4: -612278512
-      Interface_5: -852372295
-      Interface_6: 42232362
-      Interface_7: 301454295
-      Interface_8: 464894790
-      Interface_9: -300211493
+      Interface_0: -1991431723
+      Interface_1: -152309256
+      Interface_10: 697807836
+      Interface_11: 1343665927
+      Interface_12: 686318666
+      Interface_13: 108242516
+      Interface_14: 1060385567
+      Interface_15: 624994092
+      Interface_16: 724436201
+      Interface_17: -740431177
+      Interface_18: -212589869
+      Interface_19: -1507601717
+      Interface_2: 1116500838
+      Interface_20: -20599671
+      Interface_21: 1905001423
+      Interface_3: 558603999
+      Interface_4: 498601779
+      Interface_5: 992057213
+      Interface_6: -1162631359
+      Interface_7: -1506828031
+      Interface_8: -438228358
+      Interface_9: 1017403006
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

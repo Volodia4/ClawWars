@@ -11,22 +11,31 @@ public class BattleSceneManager : MonoBehaviour
     public GameObject warriorPrefab;
     public GameObject magicianPrefab;
 
+    [Header("Префаби арен")]
+    public GameObject[] arenaPrefabs;
+
     [Header("Spawn точки")]
+    public Transform arenaSpawnPos;
     public Transform spawnPointPlayer1;
     public Transform spawnPointPlayer2;
 
     [Header("Canvas")]
     public RectTransform mainCanvas;
 
+    private AudioManager am;
     private Transform player1Transform, player2Transform;
     private Camera mainCamera;
+
+    private void Awake()
+    {
+        am = AudioManager.Instance;
+        am.PlaySFX("StartGame");
+    }
 
     void Start()
     {
         mainCamera = Camera.main;
-
         GameManager gm = GameManager.Instance;
-        if (gm == null) return;
 
         GameObject p1 = Instantiate(
             gm.selectedCharacter1 == 0 ? warriorPrefab : magicianPrefab,
@@ -36,6 +45,11 @@ public class BattleSceneManager : MonoBehaviour
         GameObject p2 = Instantiate(
             gm.selectedCharacter2 == 0 ? warriorPrefab : magicianPrefab,
             spawnPointPlayer2.position,
+            Quaternion.identity
+        );
+        GameObject arena = Instantiate(
+            arenaPrefabs[gm.selectedArena],
+            arenaSpawnPos.position,
             Quaternion.identity
         );
 
@@ -62,26 +76,31 @@ public class BattleSceneManager : MonoBehaviour
         Transform longAtk2 = p2.transform.Find("LongAttack");
         if (longAtk2 != null) longAtk2.gameObject.tag = "LongAttackP2";
 
+        var bodyCollider1 = p1.transform.Find("Body")?.GetComponent<Collider2D>();
+        var bodyCollider2 = p2.transform.Find("Body")?.GetComponent<Collider2D>();
+        if (body1 != null && body2 != null)
+            Physics2D.IgnoreCollision(bodyCollider1, bodyCollider2, true);
+
         Player player1 = p1.GetComponent<Player>();
         Player player2 = p2.GetComponent<Player>();
 
         if (player1 != null && player2 != null)
         {
-            player1.leftKey = KeyCode.A;
-            player1.rightKey = KeyCode.D;
-            player1.upKey = KeyCode.W;
-            player1.downKey = KeyCode.S;
-            player1.longAtkKey = KeyCode.G;
-            player1.shortAtkKey = KeyCode.F;
-            player1.shieldKey = KeyCode.H;
+            player1.upKey = gm.keys[0];
+            player1.downKey = gm.keys[1];
+            player1.leftKey = gm.keys[2];
+            player1.rightKey = gm.keys[3];
+            player1.shortAtkKey = gm.keys[4];
+            player1.longAtkKey = gm.keys[5];
+            player1.shieldKey = gm.keys[6];
 
-            player2.leftKey = KeyCode.Keypad4;
-            player2.rightKey = KeyCode.Keypad6;
-            player2.upKey = KeyCode.Keypad8;
-            player2.downKey = KeyCode.Keypad2;
-            player2.longAtkKey = KeyCode.Keypad9;
-            player2.shortAtkKey = KeyCode.Keypad7;
-            player2.shieldKey = KeyCode.Keypad5;
+            player2.upKey = gm.keys[7];
+            player2.downKey = gm.keys[8];
+            player2.leftKey = gm.keys[9];
+            player2.rightKey = gm.keys[10];
+            player2.shortAtkKey = gm.keys[11];
+            player2.longAtkKey = gm.keys[12];
+            player2.shieldKey = gm.keys[13];
 
             player1.otherPlayer = player2.transform;
             player2.otherPlayer = player1.transform;
@@ -102,18 +121,12 @@ public class BattleSceneManager : MonoBehaviour
 
         Vector2 localPos;
         RectTransformUtility.ScreenPointToLocalPointInRectangle(
-            mainCanvas,
-            screenPos + labelOffset,
-            mainCamera,
-            out localPos
-        );
+            mainCanvas, screenPos + labelOffset, mainCamera, out localPos);
 
         label.anchoredPosition = localPos;
 
         Vector3 viewportPos = mainCamera.WorldToViewportPoint(target.position);
-        label.gameObject.SetActive(
-            viewportPos.x > 0 && viewportPos.x < 1 &&
-            viewportPos.y > 0 && viewportPos.y < 1
-        );
+        label.gameObject.SetActive(viewportPos.x > 0 && viewportPos.x < 1 &&
+            viewportPos.y > 0 && viewportPos.y < 1);
     }
 }

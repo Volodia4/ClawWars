@@ -14,4 +14,5 @@ public class CharacterAbilities : ScriptableObject
 
     [Header("Особливості персонажа")]
     public bool canShield;
+    public bool hasFireball;
 }

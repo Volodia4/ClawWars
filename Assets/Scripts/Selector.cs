@@ -6,59 +6,74 @@ public class Selector : MonoBehaviour
     [Header("Вибір персонажа")]
     public Image characterImage1;
     public Image characterImage2;
-    public Sprite[] characterSprites;
-
-    [HideInInspector]
-    public int charIndex1 = 0, charIndex2 = 0;
+    public Sprite[] characterImages;
 
     [Header("Вибір арени")]
     public Image arenaImage;
-    public Sprite[] arenaSprites;
+    public Sprite[] arenaImages;
 
     [HideInInspector]
-    public int arenaIndex = 0;
+    public int charIndex1 = 0, charIndex2 = 0, arenaIndex = 0;
+
+    private AudioManager am;
+
+    private void Awake()
+    {
+        am = AudioManager.Instance;
+    }
 
     void Start()
     {
-        characterImage1.sprite = characterSprites[0];
-        characterImage2.sprite = characterSprites[0];
-
-        arenaImage.sprite = arenaSprites[0];
+        characterImage1.sprite = characterImages[0];
+        characterImage2.sprite = characterImages[0];
+        arenaImage.sprite = arenaImages[0];
     }
 
     public void NextCharacter1()
     {
-        charIndex1 = (charIndex1 + 1) % characterSprites.Length;
-        characterImage1.sprite = characterSprites[charIndex1];
+        am.PlaySFX("Click");
+
+        charIndex1 = (charIndex1 + 1) % characterImages.Length;
+        characterImage1.sprite = characterImages[charIndex1];
     }
 
     public void PreviousCharacter1()
     {
-        charIndex1 = (charIndex1 - 1 + characterSprites.Length) % characterSprites.Length;
-        characterImage1.sprite = characterSprites[charIndex1];
+        am.PlaySFX("Click");
+
+        charIndex1 = (charIndex1 - 1 + characterImages.Length) % characterImages.Length;
+        characterImage1.sprite = characterImages[charIndex1];
     }
 
     public void NextCharacter2()
     {
-        charIndex2 = (charIndex2 + 1) % characterSprites.Length;
-        characterImage2.sprite = characterSprites[charIndex2];
+        am.PlaySFX("Click");
+
+        charIndex2 = (charIndex2 + 1) % characterImages.Length;
+        characterImage2.sprite = characterImages[charIndex2];
     }
 
     public void PreviousCharacter2()
     {
-        charIndex2 = (charIndex2 - 1 + characterSprites.Length) % characterSprites.Length;
-        characterImage2.sprite = characterSprites[charIndex2];
+        am.PlaySFX("Click");
+
+        charIndex2 = (charIndex2 - 1 + characterImages.Length) % characterImages.Length;
+        characterImage2.sprite = characterImages[charIndex2];
     }
 
     public void NextArena()
     {
-        arenaIndex = (arenaIndex + 1) % arenaSprites.Length;
-        arenaImage.sprite = arenaSprites[arenaIndex];
+        am.PlaySFX("Click");
+
+        arenaIndex = (arenaIndex + 1) % arenaImages.Length;
+        arenaImage.sprite = arenaImages[arenaIndex];
     }
 
     public void PreviousArena()
     {
-        arenaIndex = (arenaIndex - 1 + arenaSprites.Length) % arenaSprites.Length;
-        arenaImage.sprite = arenaSprites[arenaIndex];
+        am.PlaySFX("Click");
+
+        arenaIndex = (arenaIndex - 1 + arenaImages.Length) % arenaImages.Length;
+        arenaImage.sprite = arenaImages[arenaIndex];
     }
 }
