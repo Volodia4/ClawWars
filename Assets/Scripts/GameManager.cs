@@ -4,8 +4,8 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager Instance;
 
-    public int selectedCharacter1, selectedCharacter2;
-    public Sprite selectedArena;
+    [HideInInspector] public int selectedCharacter1, selectedCharacter2, selectedArena;
+    [HideInInspector] public KeyCode[] keys;
 
     private void Awake()
     {

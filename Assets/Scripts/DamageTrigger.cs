@@ -12,9 +12,17 @@ public class DamageTrigger : MonoBehaviour
     public bool isLongAtk;
 
     private int damage, health, longAttackMultiplier, critAdded;
-    private float defense, critChanse;
-    private double longDamage, damageForP1, damageForP2;
+    private float defense, critChanse, longDamage, damageForP1, damageForP2;
     private bool isP1, hasDealtDamage;
+    private AudioManager am;
+
+    private string[] soundNames = {"TakeDamage1", "TakeDamage2", "TakeDamage3",
+        "TakeDamage4", "TakeDamage5", "TakeDamage6"};
+
+    private void Awake()
+    {
+        am = AudioManager.Instance;
+    }
 
     private void OnEnable()
     {
@@ -27,7 +35,7 @@ public class DamageTrigger : MonoBehaviour
         health = abilities.maxHP;
         defense = abilities.defense;
         critChanse = abilities.critChanse;
-        longDamage = damage * 1.5;
+        longDamage = damage * 1.5f;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -35,12 +43,9 @@ public class DamageTrigger : MonoBehaviour
         if (hasDealtDamage) return;
 
         Transform bodyTransform = owner.transform.Find("Hitbox");
-        if (bodyTransform != null)
-        {
-            GameObject bodyObj = bodyTransform.gameObject;
-            if (bodyObj.CompareTag("HitboxP1")) isP1 = true;
-            if (bodyObj.CompareTag("HitboxP2")) isP1 = false;
-        }
+        GameObject bodyObj = bodyTransform.gameObject;
+        if (bodyObj.CompareTag("HitboxP1")) isP1 = true;
+        if (bodyObj.CompareTag("HitboxP2")) isP1 = false;
 
         if (isP1)
         {
@@ -51,15 +56,17 @@ public class DamageTrigger : MonoBehaviour
                     damageForP1 = longDamage;
                     critAdded = Random.Range(2, 10);
                     if (Random.Range(0f, 1f) > critChanse) damageForP1 += critAdded;
-                    HealthDefenseInitializer.Instance.ChangerHP2(damageForP1);
+                    HealthDefenseUpdater.Instance.ChangerHP2(damageForP1);
                 }
                 else
                 {
                     damageForP1 = damage;
                     critAdded = Random.Range(1, 8);
                     if (Random.Range(0f, 1f) <= critChanse) damageForP1 += critAdded;
-                    HealthDefenseInitializer.Instance.ChangerHP2(damageForP1);
+                    HealthDefenseUpdater.Instance.ChangerHP2(damageForP1);
                 }
+
+                am.PlaySFX(soundNames[Random.Range(0, soundNames.Length)]);
 
                 hasDealtDamage = true;
             }
@@ -73,15 +80,17 @@ public class DamageTrigger : MonoBehaviour
                     damageForP2 = longDamage;
                     critAdded = Random.Range(2, 10);
                     if (Random.Range(0f, 1f) > critChanse) damageForP2 += critAdded;
-                    HealthDefenseInitializer.Instance.ChangerHP1(damageForP2);
+                    HealthDefenseUpdater.Instance.ChangerHP1(damageForP2);
                 }
                 else
                 {
                     damageForP2 = damage;
                     critAdded = Random.Range(1, 8);
                     if (Random.Range(0f, 1f) > critChanse) damageForP2 += critAdded;
-                    HealthDefenseInitializer.Instance.ChangerHP1(damageForP2);
+                    HealthDefenseUpdater.Instance.ChangerHP1(damageForP2);
                 }
+
+                am.PlaySFX(soundNames[Random.Range(0, soundNames.Length)]);
 
                 hasDealtDamage = true;
             }
