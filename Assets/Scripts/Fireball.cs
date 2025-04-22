@@ -12,6 +12,10 @@ public class Fireball : MonoBehaviour
     [Header("Рух фаерболу по осі Y")]
     public float moveUp;
 
+    [Header("Відкидання")]
+    public float knockbackForce;
+    public float knockbackDuration;
+
     [Header("Здібності мага")]
     public CharacterAbilities abilities;
 
@@ -26,6 +30,8 @@ public class Fireball : MonoBehaviour
     private Vector3 targetPos;
     private Animator animator;
     private AudioManager am;
+    private Rigidbody2D player1Rb, player2Rb;
+    private Player playerScriptP1, playerScriptP2;
 
     private void Awake()
     {
@@ -33,6 +39,12 @@ public class Fireball : MonoBehaviour
 
         am = AudioManager.Instance;
         am.PlaySFX(FireballShoot);
+
+        player1Rb = GameObject.FindWithTag("Player1").GetComponent<Rigidbody2D>();
+        player2Rb = GameObject.FindWithTag("Player2").GetComponent<Rigidbody2D>();
+
+        playerScriptP1 = GameObject.FindWithTag("Player1").GetComponent<Player>();
+        playerScriptP2 = GameObject.FindWithTag("Player2").GetComponent<Player>();
     }
 
     private void Start()
@@ -64,12 +76,11 @@ public class Fireball : MonoBehaviour
     private IEnumerator PlayFlyAfterDelay()
     {
         yield return new WaitForSeconds(0.35f);
-        if (!hasDealtDamage)  animator.Play("Fly");
+        if (!hasDealtDamage) animator.Play("Fly");
     }
 
     private IEnumerator MoveToTarget()
     {
-
         while (Vector3.Distance(transform.position, targetPos) > 0.1f)
         {
             transform.position = Vector3.MoveTowards(transform.position, targetPos, speed * Time.deltaTime);
@@ -87,32 +98,56 @@ public class Fireball : MonoBehaviour
         {
             if (collision.CompareTag("HitboxP2"))
             {
+                targetPos = transform.position;
+
+                player2Rb.velocity = Vector2.zero;
+                Vector2 dir = ((Vector2)player2Rb.position - (Vector2)player1Rb.position).normalized;
+                player2Rb.AddForce(dir * knockbackForce, ForceMode2D.Impulse);
+
+                if (playerScriptP2.isShielding)
+                {
+                    playerScriptP2.DisableTemporarily(knockbackDuration);
+                    am.PlaySFX("ShieldHit");
+                    return;
+                }
+                playerScriptP2.DisableTemporarily(knockbackDuration);
+
                 float damageForP1 = fireballDamage;
                 critAdded = Random.Range(2, 10);
                 if (Random.Range(0f, 1f) > fireballCritChance) damageForP1 += critAdded;
                 HealthDefenseUpdater.Instance.ChangerHP2(damageForP1);
 
-                hasDealtDamage = true;
-
-                targetPos = transform.position;
-
                 am.PlaySFX(soundNames[Random.Range(0, soundNames.Length)]);
+
+                hasDealtDamage = true;
             }
         }
         else
         {
             if (collision.CompareTag("HitboxP1"))
             {
+                targetPos = transform.position;
+
+                player1Rb.velocity = Vector2.zero;
+                Vector2 dir = ((Vector2)player1Rb.position - (Vector2)player2Rb.position).normalized;
+                player1Rb.AddForce(dir * knockbackForce, ForceMode2D.Impulse);
+
+                if (playerScriptP1.isShielding)
+                {
+                    playerScriptP1.DisableTemporarily(knockbackDuration);
+                    am.PlaySFX("ShieldHit");
+                    return;
+                }
+                playerScriptP1.DisableTemporarily(knockbackDuration);
+
                 float damageForP2 = fireballDamage;
                 critAdded = Random.Range(2, 10);
                 if (Random.Range(0f, 1f) > fireballCritChance) damageForP2 += critAdded;
                 HealthDefenseUpdater.Instance.ChangerHP1(damageForP2);
 
-                hasDealtDamage = true;
-
-                targetPos = transform.position;
-
                 am.PlaySFX(soundNames[Random.Range(0, soundNames.Length)]);
+
+                hasDealtDamage = true;
             }
         }
     }

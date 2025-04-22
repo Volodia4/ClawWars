@@ -56,6 +56,9 @@ public class BattleSceneManager : MonoBehaviour
         player1Transform = p1.transform;
         player2Transform = p2.transform;
 
+        p1.gameObject.tag = "Player1";
+        p2.gameObject.tag = "Player2";
+
         Transform body1 = p1.transform.Find("Body");
         if (body1 != null) body1.gameObject.tag = "BodyP1";
         Transform body2 = p2.transform.Find("Body");
