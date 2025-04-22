@@ -211,6 +211,8 @@ MonoBehaviour:
   owner: {fileID: 6323508685129114836}
   abilities: {fileID: 11400000, guid: 254c82895e45f344e99ff564a89c67bc, type: 2}
   isLongAtk: 0
+  knockbackForce: 4
+  knockbackDuration: 0.2
 --- !u!1 &5706722602997785889
 GameObject:
   m_ObjectHideFlags: 0

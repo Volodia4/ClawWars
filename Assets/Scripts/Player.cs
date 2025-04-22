@@ -43,9 +43,12 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public float facingDirection = 1f;
 
+    [HideInInspector]
+    public bool isShielding;
+
     private float currentShortAttackCooldown, currentLongAttackCooldown, currentShieldCooldown;
-    private float speed, jumpForce, maxJumpHoldTime, jumpTime, delayBetweenActions;
-    private bool canShield, hasFireball, isGrounded, isJumping, cantMove, isP1;
+    private float speed, jumpForce, maxJumpHoldTime, jumpTime, delayBetweenActions, knockTimer;
+    private bool canShield, cantMove, hasFireball, isGrounded, isJumping, isKnocked, isP1;
     private Animator animator;
     private AudioManager am;
     private AudioSource audioSource;
@@ -75,6 +78,13 @@ public class Player : MonoBehaviour
 
     void Update()
     {
+        if (isKnocked)
+        {
+            knockTimer -= Time.deltaTime;
+            if (knockTimer <= 0f) isKnocked = false;
+            return;
+        }
+
         if (Mathf.Approximately(Time.timeScale, 0f)) return;
 
         if (currentShortAttackCooldown > 0f) currentShortAttackCooldown -= Time.deltaTime;
@@ -156,10 +166,12 @@ public class Player : MonoBehaviour
 
         if (canShield)
         {
-            if (Input.GetKeyDown(shieldKey) && currentShieldCooldown <= 0f && delayBetweenActions <= 0f && !cantMove)
+            if (Input.GetKeyDown(shieldKey) && currentShieldCooldown <= 0f &&
+                delayBetweenActions <= 0f && !cantMove)
             {
                 animator.SetBool("isShielding", true);
                 cantMove = true;
+                isShielding = true;
                 currentShieldCooldown = shieldCooldown;
                 delayBetweenActions = shieldHoldTime;
             }
@@ -167,14 +179,27 @@ public class Player : MonoBehaviour
             {
                 animator.SetBool("isShielding", false);
                 cantMove = false;
+                isShielding = false;
             }
             if (Input.GetKeyUp(shieldKey))
             {
                 animator.SetBool("isShielding", false);
                 cantMove = false;
+                isShielding = false;
                 delayBetweenActions = 0.2f;
             }
         }
+    }
+
+    public void DisableTemporarily(float duration)
+    {
+        isKnocked = true;
+        knockTimer = duration;
+
+        Uncrouch();
+        animator.SetBool("isShielding", false);
+        cantMove = false;
+        isShielding = false;
     }
 
     private void Jump()

@@ -19,6 +19,8 @@ TagManager:
   - ShortAttackP2
   - LongAttackP1
   - LongAttackP2
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX

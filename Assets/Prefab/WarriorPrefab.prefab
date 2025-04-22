@@ -218,6 +218,8 @@ MonoBehaviour:
   owner: {fileID: 6152985666055496342}
   abilities: {fileID: 11400000, guid: 2448bd64354b425418bc981f6c433287, type: 2}
   isLongAtk: 1
+  knockbackForce: 10
+  knockbackDuration: 0.8
 --- !u!1 &5344584088000560334
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +407,7 @@ MonoBehaviour:
   shieldCooldown: 10
   shortAtkHoldTime: 0.6
   longAtkHoldTime: 0.9
-  shieldHoldTime: 1.5
+  shieldHoldTime: 2
   shortAtkSound: SwordShort
   longAtkSound: SwordLong
   shortAtkSoundDelay: 0.3
@@ -419,6 +421,7 @@ MonoBehaviour:
   shortAtkKey: 0
   shieldKey: 0
   facingDirection: 1
+  isShielding: 0
 --- !u!212 &38094272779277089
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -708,3 +711,5 @@ MonoBehaviour:
   owner: {fileID: 6152985666055496342}
   abilities: {fileID: 11400000, guid: 2448bd64354b425418bc981f6c433287, type: 2}
   isLongAtk: 0
+  knockbackForce: 8
+  knockbackDuration: 0.3
