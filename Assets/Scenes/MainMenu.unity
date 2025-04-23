@@ -4819,6 +4819,7 @@ MonoBehaviour:
   - {fileID: 8300000, guid: c93941eac9733d0469db57915bf9d113, type: 3}
   - {fileID: 8300000, guid: 0889412a2fe1bae429d1ed14e72f2be6, type: 3}
   - {fileID: 8300000, guid: 01602e4131b85174d9257e0cd8a87cdc, type: 3}
+  - {fileID: 8300000, guid: 9d530a05cebfa834980d8e5b94f3e31e, type: 3}
   - {fileID: 8300000, guid: 88d6a277a4af33e45b743ccbcdd3f977, type: 3}
   - {fileID: 8300000, guid: 84e3f3f19254ced4e90a3317dc6349ef, type: 3}
   - {fileID: 8300000, guid: 7265707ccf65ba74185ab91af1af05a9, type: 3}
@@ -8431,7 +8432,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 0.5
+  m_Volume: 0.6
   m_Pitch: 1
   Loop: 0
   Mute: 0

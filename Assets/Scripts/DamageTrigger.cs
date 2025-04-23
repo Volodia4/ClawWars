@@ -67,9 +67,15 @@ public class DamageTrigger : MonoBehaviour
             {
                 if (playerScriptP2.isShielding)
                 {
-                    playerScriptP2.DisableTemporarily(knockbackDuration);
+                    playerScriptP1.DisableTemporarily(1f);
+                    playerScriptP2.DisableTemporarily(0f);
                     am.PlaySFX("ShieldHit");
                     hasDealtDamage = true;
+
+                    player1Rb.velocity = Vector2.zero;
+                    Vector2 knockDir = ((Vector2)owner.transform.position - (Vector2)player2Rb.position).normalized;
+                    player1Rb.AddForce(knockDir * knockbackForce, ForceMode2D.Impulse);
+
                     return;
                 }
 
@@ -104,9 +110,15 @@ public class DamageTrigger : MonoBehaviour
             {
                 if (playerScriptP1.isShielding)
                 {
-                    playerScriptP1.DisableTemporarily(knockbackDuration);
+                    playerScriptP2.DisableTemporarily(1f);
+                    playerScriptP1.DisableTemporarily(0f);
                     am.PlaySFX("ShieldHit");
                     hasDealtDamage = true;
+
+                    player2Rb.velocity = Vector2.zero;
+                    Vector2 knockDir = ((Vector2)owner.transform.position - (Vector2)player1Rb.position).normalized;
+                    player2Rb.AddForce(knockDir * knockbackForce, ForceMode2D.Impulse);
+
                     return;
                 }
 
