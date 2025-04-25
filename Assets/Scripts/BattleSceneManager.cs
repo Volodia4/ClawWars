@@ -1,3 +1,4 @@
+using TMPro;
 using UnityEngine;
 
 public class BattleSceneManager : MonoBehaviour
@@ -19,6 +20,12 @@ public class BattleSceneManager : MonoBehaviour
     public Transform spawnPointPlayer1;
     public Transform spawnPointPlayer2;
 
+    [Header("Нікнейми гравців")]
+    public TextMeshProUGUI nicknameP1;
+    public TextMeshProUGUI nicknameP1BG;
+    public TextMeshProUGUI nicknameP2;
+    public TextMeshProUGUI nicknameP2BG;
+
     [Header("Canvas")]
     public RectTransform mainCanvas;
 
@@ -36,6 +43,11 @@ public class BattleSceneManager : MonoBehaviour
     {
         mainCamera = Camera.main;
         GameManager gm = GameManager.Instance;
+
+        nicknameP1.text = PlayerPrefs.GetString("NicknameP1");
+        nicknameP1BG.text = PlayerPrefs.GetString("NicknameP1");
+        nicknameP2.text = PlayerPrefs.GetString("NicknameP2");
+        nicknameP2BG.text = PlayerPrefs.GetString("NicknameP2");
 
         GameObject p1 = Instantiate(
             gm.selectedCharacter1 == 0 ? warriorPrefab : magicianPrefab,
