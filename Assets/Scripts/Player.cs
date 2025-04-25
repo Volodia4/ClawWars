@@ -51,6 +51,7 @@ public class Player : MonoBehaviour
     private bool canShield, cantMove, hasFireball, isGrounded, isJumping, isKnocked, isP1;
     private Animator animator;
     private AudioManager am;
+    private CooldownManager cm;
     private AudioSource audioSource;
     private PolygonCollider2D polyCollider;
     private Vector2[] originalPoints;
@@ -63,6 +64,8 @@ public class Player : MonoBehaviour
 
         am = AudioManager.Instance;
         audioSource = GetComponent<AudioSource>();
+
+        cm = CooldownManager.Instance;
     }
 
     void Start()
@@ -74,6 +77,11 @@ public class Player : MonoBehaviour
         maxJumpHoldTime = abilities.maxJumpHoldTime;
         canShield = abilities.canShield;
         hasFireball = abilities.hasFireball;
+
+        Transform bodyTransform = transform.Find("Hitbox");
+        GameObject bodyObj = bodyTransform.gameObject;
+        if (bodyObj.CompareTag("HitboxP1")) isP1 = true;
+        if (bodyObj.CompareTag("HitboxP2")) isP1 = false;
     }
 
     void Update()
@@ -143,8 +151,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(downKey) && delayBetweenActions <= 0f && isGrounded) Crouch();
         else if (Input.GetKeyUp(downKey)) Uncrouch();
 
-        if (Input.GetKeyDown(shortAtkKey) && currentShortAttackCooldown <= 0f && delayBetweenActions <= 0f && !cantMove)
+        if (Input.GetKeyDown(shortAtkKey) && currentShortAttackCooldown <= 0f
+            && delayBetweenActions <= 0f && !cantMove)
         {
+            cm.SpawnCooldown(isP1, canShield, 1, shortAttackCooldown);
+
             StartCoroutine(PlayAtkSound(shortAtkSound, shortAtkSoundDelay));
 
             animator.SetTrigger("shortAttack");
@@ -153,8 +164,11 @@ public class Player : MonoBehaviour
             delayBetweenActions = shortAtkHoldTime;
         }
 
-        if (Input.GetKeyDown(longAtkKey) && currentLongAttackCooldown <= 0f && delayBetweenActions <= 0f && !cantMove)
+        if (Input.GetKeyDown(longAtkKey) && currentLongAttackCooldown <= 0f
+            && delayBetweenActions <= 0f && !cantMove)
         {
+            cm.SpawnCooldown(isP1, canShield, 2, longAttackCooldown);
+
             StartCoroutine(PlayAtkSound(longAtkSound, longAtkSoundDelay));
 
             animator.SetTrigger("longAttack");
@@ -169,6 +183,8 @@ public class Player : MonoBehaviour
             if (Input.GetKeyDown(shieldKey) && currentShieldCooldown <= 0f &&
                 delayBetweenActions <= 0f && !cantMove)
             {
+                cm.SpawnCooldown(isP1, canShield, 3, shieldCooldown);
+
                 animator.SetBool("isShielding", true);
                 cantMove = true;
                 isShielding = true;
@@ -257,11 +273,6 @@ public class Player : MonoBehaviour
 
         var start = transform.position + new Vector3(1f * facingDirection, -0.5f, 0f);
         var go = Instantiate(fireball, start, Quaternion.identity);
-
-        Transform bodyTransform = transform.Find("Hitbox");
-        GameObject bodyObj = bodyTransform.gameObject;
-        if (bodyObj.CompareTag("HitboxP1")) isP1 = true;
-        if (bodyObj.CompareTag("HitboxP2")) isP1 = false;
 
         var fb = go.GetComponent<Fireball>();
         fb.Initialize(isP1, facingDirection);

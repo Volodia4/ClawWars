@@ -20,9 +20,14 @@ public class MenuController : MonoBehaviour
     [Header("Кнопки переприв’язки")]
     public Button[] rebindButtons;
 
+    [Header("Нікнейми гравців")]
+    public TMP_InputField nicknameP1Input;
+    public TMP_InputField nicknameP2Input;
+
     private AudioManager am;
     private KeyCode[] keys;
     private bool rebinding, isExitingGame;
+    private string nicknameP1, nicknameP2;
 
     private string ConfigPath => Path.Combine(Application.persistentDataPath, "keybindings.json");
 
@@ -41,6 +46,11 @@ public class MenuController : MonoBehaviour
 
     void Start()
     {
+        if (PlayerPrefs.HasKey("NicknameP1"))
+            nicknameP1Input.text = PlayerPrefs.GetString("NicknameP1");
+        if (PlayerPrefs.HasKey("NicknameP2"))
+            nicknameP2Input.text = PlayerPrefs.GetString("NicknameP2");
+
         try
         {
             var json = File.ReadAllText(ConfigPath);
@@ -56,6 +66,13 @@ public class MenuController : MonoBehaviour
         }
 
         UpdateAllLabels();
+    }
+
+    public void SaveNickname()
+    {
+        PlayerPrefs.SetString("NicknameP1", nicknameP1Input.text);
+        PlayerPrefs.SetString("NicknameP2", nicknameP2Input.text);
+        PlayerPrefs.Save();
     }
 
     private void InitDefaultKeys()
@@ -162,6 +179,7 @@ public class MenuController : MonoBehaviour
         GameManager.Instance.selectedCharacter2 = selector.charIndex2;
         GameManager.Instance.selectedArena = selector.arenaIndex;
         GameManager.Instance.keys = keys;
+        SaveNickname();
         SceneManager.LoadScene("BattleScene");
     }
 
