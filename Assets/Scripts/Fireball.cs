@@ -53,7 +53,7 @@ public class Fireball : MonoBehaviour
         fireballCritChance = abilities.critChanse;
     }
 
-    public void Initialize(bool isP1, float facingDirection)
+    public void Initialize(bool isP1, bool isLowerFireball, float facingDirection)
     {
         isPlayer1 = isP1;
 
@@ -65,7 +65,8 @@ public class Fireball : MonoBehaviour
         }
 
         var start = transform.position;
-        targetPos  = start + new Vector3(moveSide * facingDirection, moveUp, 0f);
+        if (isLowerFireball) moveUp = moveUp - 3;
+        targetPos = start + new Vector3(moveSide * facingDirection, moveUp, 0f);
 
         animator.Play("Start");
         StartCoroutine(PlayFlyAfterDelay());

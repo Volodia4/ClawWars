@@ -48,7 +48,7 @@ public class Player : MonoBehaviour
 
     private float currentShortAttackCooldown, currentLongAttackCooldown, currentShieldCooldown;
     private float speed, jumpForce, maxJumpHoldTime, jumpTime, delayBetweenActions, knockTimer;
-    private bool canShield, cantMove, hasFireball, isGrounded, isJumping, isKnocked, isP1;
+    private bool canShield, cantMove, hasFireball, queuedShield, isGrounded, isJumping, isKnocked, isP1;
     private Animator animator;
     private AudioManager am;
     private CooldownManager cm;
@@ -148,11 +148,11 @@ public class Player : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(downKey) && delayBetweenActions <= 0f && isGrounded) Crouch();
+        if (Input.GetKey(downKey) && delayBetweenActions <= 0f && isGrounded) Crouch();
         else if (Input.GetKeyUp(downKey)) Uncrouch();
 
         if (Input.GetKeyDown(shortAtkKey) && currentShortAttackCooldown <= 0f
-            && delayBetweenActions <= 0f && !cantMove)
+            && delayBetweenActions <= 0f)
         {
             cm.SpawnCooldown(isP1, canShield, 1, shortAttackCooldown);
 
@@ -162,10 +162,12 @@ public class Player : MonoBehaviour
             StartCoroutine(playerAttackShort.AttackSequence());
             currentShortAttackCooldown = shortAttackCooldown;
             delayBetweenActions = shortAtkHoldTime;
+
+            Uncrouch();
         }
 
         if (Input.GetKeyDown(longAtkKey) && currentLongAttackCooldown <= 0f
-            && delayBetweenActions <= 0f && !cantMove)
+            && delayBetweenActions <= 0f)
         {
             cm.SpawnCooldown(isP1, canShield, 2, longAttackCooldown);
 
@@ -176,12 +178,19 @@ public class Player : MonoBehaviour
             else StartCoroutine(playerAttackLong.AttackSequence());
             currentLongAttackCooldown = longAttackCooldown;
             delayBetweenActions = longAtkHoldTime;
+
+            Uncrouch();
         }
 
         if (canShield)
         {
-            if (Input.GetKeyDown(shieldKey) && currentShieldCooldown <= 0f &&
-                delayBetweenActions <= 0f && !cantMove)
+            if (Input.GetKey(shieldKey) && delayBetweenActions <= 0f && !cantMove
+                && currentShieldCooldown <= 0f && delayBetweenActions <= 0f)
+                queuedShield = true;
+            else queuedShield = false;
+
+            if ((Input.GetKeyDown(shieldKey) && currentShieldCooldown <= 0f &&
+                delayBetweenActions <= 0f && !cantMove) || queuedShield)
             {
                 cm.SpawnCooldown(isP1, canShield, 3, shieldCooldown);
 
@@ -271,11 +280,14 @@ public class Player : MonoBehaviour
     {
         yield return new WaitForSeconds(1);
 
+        bool isLowerFireball = false;
+        if (Input.GetKey(downKey)) isLowerFireball = true;
+
         var start = transform.position + new Vector3(1f * facingDirection, -0.5f, 0f);
         var go = Instantiate(fireball, start, Quaternion.identity);
 
         var fb = go.GetComponent<Fireball>();
-        fb.Initialize(isP1, facingDirection);
+        fb.Initialize(isP1, isLowerFireball, facingDirection);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

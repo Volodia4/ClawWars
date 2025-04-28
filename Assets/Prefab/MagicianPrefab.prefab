@@ -212,7 +212,7 @@ MonoBehaviour:
   abilities: {fileID: 11400000, guid: 254c82895e45f344e99ff564a89c67bc, type: 2}
   isLongAtk: 0
   knockbackForce: 4
-  knockbackDuration: 0.2
+  knockbackDuration: 0.5
 --- !u!1 &5706722602997785889
 GameObject:
   m_ObjectHideFlags: 0
@@ -315,6 +315,7 @@ MonoBehaviour:
   shortAtkKey: 0
   shieldKey: 0
   facingDirection: 1
+  isShielding: 0
 --- !u!212 &8113821937354805739
 SpriteRenderer:
   m_ObjectHideFlags: 0

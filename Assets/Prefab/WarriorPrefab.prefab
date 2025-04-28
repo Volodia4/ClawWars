@@ -404,10 +404,10 @@ MonoBehaviour:
   rb: {fileID: 1015158596030824209}
   shortAttackCooldown: 1.2
   longAttackCooldown: 2.5
-  shieldCooldown: 10
+  shieldCooldown: 13.5
   shortAtkHoldTime: 0.6
   longAtkHoldTime: 0.9
-  shieldHoldTime: 2
+  shieldHoldTime: 3
   shortAtkSound: SwordShort
   longAtkSound: SwordLong
   shortAtkSoundDelay: 0.3
