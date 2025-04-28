@@ -84,7 +84,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 10
   moveSide: 20
-  moveUp: 3.3
+  moveUp: 3.5
   knockbackForce: 12
   knockbackDuration: 0.5
   abilities: {fileID: 11400000, guid: 254c82895e45f344e99ff564a89c67bc, type: 2}

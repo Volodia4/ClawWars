@@ -30,7 +30,7 @@ public class CooldownSlot : MonoBehaviour
             elapsed += Time.deltaTime;
             float remaining = duration - elapsed;
             fillMask.fillAmount = elapsed / duration;
-            timerText.text = remaining.ToString("F2");
+            timerText.text = remaining.ToString("F1");
             yield return null;
         }
 
