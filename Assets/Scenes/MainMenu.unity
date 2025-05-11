@@ -5655,8 +5655,6 @@ MonoBehaviour:
   selectedCharacter1: 0
   selectedCharacter2: 0
   selectedArena: 0
-  labelP1: 
-  labelP2: 
   keys: 
 --- !u!1 &916272664
 GameObject:
@@ -11119,6 +11117,18 @@ MonoBehaviour:
   - {fileID: 21300000, guid: 8b5309432e36c614b8297028a5edec1a, type: 3}
   - {fileID: 21300000, guid: 7275476a156f9e042bb03e0eecb6d28c, type: 3}
   - {fileID: 21300000, guid: 10ccc9dc4bd28c84990497c563c4ec4a, type: 3}
+  - {fileID: 21300000, guid: af9d289bf417e6b4e85be572a36d3455, type: 3}
+  - {fileID: 21300000, guid: 983d0b9da4a391d4299c143aa9aa197c, type: 3}
+  - {fileID: 21300000, guid: 2a608889d609929478338723bca73f85, type: 3}
+  - {fileID: 21300000, guid: 8fd1e19efafffc349b31f852a0d96c9e, type: 3}
+  - {fileID: 21300000, guid: 55314f2e71c2d03459312f6e00d5b85a, type: 3}
+  - {fileID: 21300000, guid: 264fd5a42b652f34ea12f135977eb88e, type: 3}
+  - {fileID: 21300000, guid: 74044b98bb06a3747af17b510b8607ea, type: 3}
+  - {fileID: 21300000, guid: 227885538ea9fa24389dcbbc61726b22, type: 3}
+  - {fileID: 21300000, guid: 800f12ce3eb131645894bf6706a79e23, type: 3}
+  - {fileID: 21300000, guid: ba3b7e849cf459349ba42972cad83e6c, type: 3}
+  - {fileID: 21300000, guid: cffb9e8bec6f9924c92c27f68eadbb0a, type: 3}
+  - {fileID: 21300000, guid: b6d86797433db2b41bcaa4e97ce1d927, type: 3}
   charIndex1: 0
   charIndex2: 0
   arenaIndex: 0
