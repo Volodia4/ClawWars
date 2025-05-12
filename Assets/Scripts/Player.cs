@@ -16,6 +16,11 @@ public class Player : MonoBehaviour
     [Header("Фізика")]
     public Rigidbody2D rb;
 
+    [Header("Бар'єри по X")]
+    public float xLimit;
+    public float barrierForce;
+    public float barrierStiffness;
+
     [Header("Cooldown для атак")]
     public float shortAttackCooldown;
     public float longAttackCooldown;
@@ -214,6 +219,30 @@ public class Player : MonoBehaviour
                 delayBetweenActions = 0.2f;
             }
         }
+    }
+
+    void FixedUpdate()
+    {
+        float x = transform.position.x;
+
+        float over = 0f;
+        int dir = 0;
+
+        if (x < -xLimit)
+        {
+            over = -xLimit - x;
+            dir = 1;
+        }
+        else if (x > xLimit)
+        {
+            over = x - xLimit;
+            dir = -1;
+        }
+        else return;
+
+        float forceAmount = barrierForce + barrierStiffness * over;
+
+        rb.AddForce(Vector2.right * dir * forceAmount * Time.fixedDeltaTime, ForceMode2D.Force);
     }
 
     public void DisableTemporarily(float duration)
