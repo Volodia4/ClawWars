@@ -29,8 +29,7 @@
 
 ## 🔧 Встановлення та запуск
 
-1. **Клонувати репозиторій**  
-   ```git clone https://github.com/Volodia4/ClawWars.git```
+1. **Клонувати репозиторій:** ```git clone https://github.com/Volodia4/ClawWars.git```
 2. **Відкрити проект** в Unity (версія **2021.3 LTS** або вище).
 3. **Завантажити** сцену **MainMenu** та натиснути **Play**.
 
@@ -38,15 +37,18 @@
 
 ## 🎮 Управління (дефолтні клавіші)
 
-| Дія             | Гравець 1  | Гравець 2  |
-| --------------- | ---------- | ---------- |
-| Вліво / Вправо  | A / D      | ← / →      |
-| Стрибок         | W          | ↑          |
-| Присід          | S          | ↓          |
-| Коротка атака   | F          | Keypad 8   |
-| Довга атака     | G          | Keypad 9   |
-| Щит (воїн)      | H          | Keypad 7   |
-| Мута звуку (UI) | M (кнопка) | M (кнопка) |
+| Дія                  | Гравець 1 | Гравець 2 |
+| -------------------- | --------- | --------- |
+| Вліво                |     A     | Keypad 4  |
+| Вправо               |     D     | Keypad 6  |
+| Стрибок              |     W     | Keypad 8  |
+| Присід               |     S     | Keypad 2  |
+| Коротка атака        |     F     | Keypad 7  |
+| Довга атака          |     G     | Keypad 9  |
+| Щит (воїн)           |     H     | Keypad 5  |
+| -------------------- | --------------------- |
+| Пауза / Налаштування |          Esc          |
+| -------------------- | --------------------- |
 
 *У меню → **Settings** можете будь-які перепризначити.*
 
@@ -56,20 +58,160 @@
 
 ```
 Assets/
-├── Audio/                 # Музика та SFX
-├── UI/                    # Префаби та канвас
-│   ├── Prefabs/
-│   │   └── CooldownSlot.prefab
-│   └── Scenes/
-│       ├── MainMenu.unity
-│       └── BattleScene.unity
-├── Scripts/
+├── Animations/                                 # Папка з анімаціями
+|   ├── Controllers/
+|   |   ├── CatMagicianAnimator.controller
+|   |   ├── CatWarriorAnimator.controller
+|   |   └── FireballAnimator.controller
+|   ├── CatMagicianCrouch.anim
+|   ├── CatMagicianFall.anim
+|   ├── CatMagicianIdle.anim
+|   ├── CatMagicianJump.anim
+|   ├── CatMagicianLongAttack.anim
+|   ├── CatMagicianRunBack.anim
+|   ├── CatMagicianRunFront.anim
+|   ├── CatMagicianShortAttack.anim
+|   ├── CatWarriorCrouch.anim
+|   ├── CatWarriorFall.anim
+|   ├── CatWarriorIdle.anim
+|   ├── CatWarriorJump.anim
+|   ├── CatWarriorLongAttack.anim
+|   ├── CatWarriorRunBack.anim
+|   ├── CatWarriorRunFront.anim
+|   ├── CatWarriorShield.anim
+|   ├── CatWarriorShortAttack.anim
+|   ├── FireballDestroy.anim
+|   ├── FireballFly.anim
+|   └── FireballStart.anim
+├── Prefab/                                     # Папка з префабами
+│   ├── Arena_1.prefab
+│   ├── Arena_2.prefab
+│   ├── Arena_3.prefab
+│   ├── Arena_4.prefab
+│   ├── Arena_5.prefab
+│   ├── Arena_6.prefab
+│   ├── Arena_7.prefab
+│   ├── Arena_8.prefab
+│   ├── Arena_9.prefab
+│   ├── Arena_10.prefab
+│   ├── Arena_11.prefab
+│   ├── Arena_12.prefab
+│   ├── Arena_13.prefab
+│   ├── Arena_14.prefab
+│   ├── Arena_15.prefab
+│   ├── CooldownSlot.prefab
+│   ├── FireballPrefab.prefab
+│   ├── MagicianPrefab.prefab
+│   └── WarriorPrefab.prefab
+├── Scenes/                                     # Папка зі сценами (головне меню та батлсцена)
+│   ├── BattleScene.unity
+│   └── MainMenu.unity
+├── Scripts/                                    # Папка зі скриптами
 │   ├── AudioManager.cs
+│   ├── BattleSceneManager.cs
+│   ├── CharacterAbilities.cs
 │   ├── CooldownManager.cs
-│   ├── Player.cs
+│   ├── CooldownSlot.cs
 │   ├── DamageTrigger.cs
-│   └── Selector.cs
-└── Resources/             # Матеріали, шрифти TextMeshPro
+│   ├── Fireball.cs
+│   ├── GameManager.cs
+│   ├── HealthDefenseUpdater.cs
+│   ├── MenuController.cs
+│   ├── MuteButton.cs
+│   ├── PauseWinMenu.cs
+│   ├── Player.cs
+│   ├── PlayerAttack.cs
+│   ├── ScrollingBackground.cs
+│   ├── Selector.cs
+│   ├── MagicianAbilities.asset
+│   └── WarriorAbilities.asset
+├── Sounds/                                     # Папка зі звуками та музикою
+│   ├── Music/
+|   |   ├── battle1.ogg
+|   |   ├── battle2.ogg
+|   |   ├── battle3.ogg
+|   |   ├── battle4.ogg
+|   |   ├── battle5.ogg
+|   |   ├── battle6.ogg
+|   |   ├── track1.ogg
+|   |   ├── track2.ogg
+|   |   ├── track3.ogg
+|   |   ├── track4.ogg
+|   |   ├── track5.ogg
+|   |   └── track6.ogg
+│   └── SFX/
+|   |   ├── Click.wav
+|   |   ├── ExitGame.wav
+|   |   ├── Fall.wav
+|   |   ├── FireballExplode.wav
+|   |   ├── FireballShoot.wav
+|   |   ├── Jump.wav
+|   |   ├── KeyChange.wav
+|   |   ├── MageShort.wav
+|   |   ├── Running.wav
+|   |   ├── ShieldHit.wav
+|   |   ├── StartGame.wav
+|   |   ├── SwordLong.wav
+|   |   ├── SwordShort.wav
+|   |   ├── TakeDamage1.wav
+|   |   ├── TakeDamage2.wav
+|   |   ├── TakeDamage3.wav
+|   |   ├── TakeDamage4.wav
+|   |   ├── TakeDamage5.wav
+|   |   ├── TakeDamage6.wav
+|   |   └── Win.wav
+├── Sprites/                                    # Папка зі всіма спрайтами та картинками
+|   ├── BG/
+|   |   ├── BackCityBG.png
+|   |   ├── BG_1.jpg
+|   |   ├── BG_2.jpg
+|   |   ├── BG_3.jpg
+|   |   ├── BG_4.jpg
+|   |   ├── BG_5.jpg
+|   |   ├── BG_6.jpg
+|   |   ├── BG_7.jpg
+|   |   ├── BG_8.jpg
+|   |   ├── BG_9.jpg
+|   |   ├── BG_10.jpg
+|   |   ├── BG_11.jpg
+|   |   ├── BG_12.jpg
+|   |   ├── BG_13.jpg
+|   |   ├── BG_14.jpg
+|   |   ├── BG_15.jpg
+|   |   ├── MainCityBG.png
+|   |   ├── SettingsBG1.png
+|   |   ├── SettingsBG2.png
+|   |   ├── SkyGradientBG.png
+|   |   └── SkyStarsBG.png
+|   ├── Characters/
+|   |   ├── CatMagician/
+|   |   |   ├── CatMagicianBase.png
+|   |   |   ├── CatMagicianHit.png
+|   |   |   ├── CatMagicianHitLong.png
+|   |   |   ├── CatMagicianJumpDown.png
+|   |   |   ├── CatMagicianJumpUp.png
+|   |   |   ├── CatMagicianRun.png
+|   |   |   ├── CatMagicianSit.png
+|   |   |   ├── CatMagicianStanding.png
+|   |   |   ├── CatMagicianWalkBack.png
+|   |   |   └── CatMagicianWalkFront.png
+|   |   └── CatWarrior/
+|   |   |   ├── CatWarriorBase.png
+|   |   |   ├── CatWarriorHit.png
+|   |   |   ├── CatWarriorHitLong.png
+|   |   |   ├── CatWarriorJumpDown.png
+|   |   |   ├── CatWarriorJumpUp.png
+|   |   |   ├── CatWarriorRun.png
+|   |   |   ├── CatWarriorShieldUse.png
+|   |   |   ├── CatWarriorSit.png
+|   |   |   ├── CatWarriorStanding.png
+|   |   |   ├── CatWarriorWalkBack.png
+|   |   |   └── CatWarriorWalkFront.png
+|   └── Other/
+|   |   ├── Fireball.png
+|   |   └── Interface.png
+└── TextMesh Pro/                               # Папка зі шрифтами
+    └── ...
 ```
 
 ---
