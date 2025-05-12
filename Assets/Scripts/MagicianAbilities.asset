@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca23cc8b82dfbb343a16b3c15f09ae0f, type: 3}
+  m_Name: MagicianAbilities
+  m_EditorClassIdentifier: 
+  speed: 6.5
+  jumpForce: 10
+  maxJumpHoldTime: 0.3
+  maxHP: 320
+  damage: 28
+  defense: 0.2
+  critChanse: 0.65
+  canShield: 0
+  hasFireball: 1

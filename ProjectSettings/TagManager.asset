@@ -3,7 +3,24 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - Background
+  - Canvas
+  - Button
+  - Another
+  - Text
+  - Objects
+  - Ground
+  - BodyP1
+  - BodyP2
+  - HitboxP1
+  - HitboxP2
+  - ShortAttackP1
+  - ShortAttackP2
+  - LongAttackP1
+  - LongAttackP2
+  - Player1
+  - Player2
   layers:
   - Default
   - TransparentFX
@@ -40,4 +57,19 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Ground
+    uniqueID: 104093245
+    locked: 0
+  - name: Background
+    uniqueID: 1669145881
+    locked: 0
+  - name: Players
+    uniqueID: 2876472293
+    locked: 0
+  - name: Objects
+    uniqueID: 3460602893
+    locked: 0
+  - name: Canvas
+    uniqueID: 999966023
     locked: 0
