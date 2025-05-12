@@ -402,6 +402,9 @@ MonoBehaviour:
   abilities: {fileID: 11400000, guid: 2448bd64354b425418bc981f6c433287, type: 2}
   fireball: {fileID: 0}
   rb: {fileID: 1015158596030824209}
+  xLimit: 16
+  barrierForce: 500
+  barrierStiffness: 10000
   shortAttackCooldown: 1.2
   longAttackCooldown: 2.5
   shieldCooldown: 13.5

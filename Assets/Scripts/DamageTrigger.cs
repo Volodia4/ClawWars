@@ -15,7 +15,7 @@ public class DamageTrigger : MonoBehaviour
     public float knockbackForce;
     public float knockbackDuration;
 
-    private int damage, health, longAttackMultiplier, critAdded;
+    private int damage, health, critAdded;
     private float defense, critChanse, longDamage, damageForP1, damageForP2;
     private bool isP1, hasDealtDamage;
     private AudioManager am;

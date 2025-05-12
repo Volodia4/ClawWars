@@ -27,7 +27,6 @@ public class MenuController : MonoBehaviour
     private AudioManager am;
     private KeyCode[] keys;
     private bool rebinding, isExitingGame;
-    private string nicknameP1, nicknameP2;
 
     private string ConfigPath => Path.Combine(Application.persistentDataPath, "keybindings.json");
 
